@@ -98,6 +98,13 @@ pyautogui.press('tab')
 # The below button will press enter on the Install button and hence installation should get started
 pyautogui.press('enter')
 
+##The below code will calculate the time the application took to install.
+#The logic is-> wmic command is the way by which we get to know installed software on the windows system.
+#We keep checking after a time interval of 1 second by ffiring wmic command output on the system.
+#The command output is then redirected to text file called as "InstalledSoftwareList.txt"
+#The we put a parsing operation on the text which we tries to read from the text file and looks for bluetack software installtion info.
+#There is timeout afte 5 minutes(5*60=300 sec) in case wmic output does not show bluetack installer info
+
 t1 = datetime.datetime.now()
 raise_flag = None
 for i in range(300):
